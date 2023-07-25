@@ -34,11 +34,11 @@
     1. [Схема инфраструктуры](./docs/02-devops/01-infrastruture.md)
     2. [Схема мониторинга](./docs/02-devops/02-monitoring.md)
 3. Тестирование
-   1. [Тестирование пользовательских историй](/docs/03-testing/user-story.md)
+   1. [Тестирование пользовательских историй](./docs/03-testing/user-story.md)
 4. Архитектура
-   1. [Архитектурная диаграмма](/docs/04-architecture/01-arch.md)
-   2. [Схема интеграции](/docs/04-architecture/02-integration.md)
-   3. [Описание API](/docs/04-architecture/03-api.md)
+   1. [Архитектурная диаграмма](./docs/04-architecture/01-arch.md)
+   2. [Схема интеграции](./docs/04-architecture/02-integration.md)
+   3. [Описание API](./docs/04-architecture/03-api.md)
 
 ## Структура проекта
 
