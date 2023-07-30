@@ -6,7 +6,7 @@ plugins {
 
 kotlin {
     jvm { }
-    linuxX64 { }
+//    linuxX64 { }
 //    macosX64 { }
 
     sourceSets {
@@ -51,6 +51,7 @@ openApiGenerate {
     modelPackage.set("$openapiGroup.models")
     invokerPackage.set("$openapiGroup.invoker")
     inputSpec.set("$rootDir/specs/specs-menu-v1.yaml")
+    modelNameSuffix.set("Dto")
     library.set("multiplatform")
 
     /**

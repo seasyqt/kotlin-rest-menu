@@ -28,6 +28,7 @@ openApiGenerate {
     apiPackage.set("$openapiGroup.api")
     modelPackage.set("$openapiGroup.models")
     invokerPackage.set("$openapiGroup.invoker")
+    modelNameSuffix.set("Dto")
     inputSpec.set("$rootDir/specs/specs-menu-v1.yaml")
 
     /**
