@@ -660,8 +660,21 @@ components:
         - success
         - notFound
         - badId
-        - badTitle
-        - badDescription
-        - badVisibility
+        - badName
+        - badType
+        - badPrice
+        - cannotDelete
+        - badSearchString
+
+    OrderRequestDebugStubs:
+      type: string
+      description: Перечисления всех стабов
+      enum:
+        - success
+        - notFound
+        - badId
+        - badName
+        - badType
+        - badPrice
         - cannotDelete
         - badSearchString

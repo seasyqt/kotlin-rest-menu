@@ -1,9 +1,10 @@
 rootProject.name = "quickMenu"
 
 include("m1-l1-helloworld")
-include("m2-menu")
-include("m2-menu-api-v1-jackson")
-include("m2-menu-api-v2-kmp")
+include("menu")
+include("menu-api-v1-jackson")
+include("menu-api-v2-kmp")
+include("menu-common")
 
 pluginManagement {
     val kotlinVersion: String by settings
@@ -15,3 +16,4 @@ pluginManagement {
         id("org.openapi.generator") version openapiVersion apply false
     }
 }
+
