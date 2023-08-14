@@ -293,15 +293,15 @@ components:
           orderSearch: '#/components/schemas/OrderSearchResponse'
 
     GoodsId:
-      type: integer
+      type: string
       description: Идентификатор продукта
       example: 3
     OrderId:
-      type: integer
+      type: string
       description: Идентификатор списка заказа
       example: 10
     BuyerId:
-      type: integer
+      type: string
       description: Идентификатор покупателя
       example: 100
 
@@ -317,7 +317,7 @@ components:
         type:
           $ref: '#/components/schemas/GoodsType'
         price:
-          type: integer
+          type: string
           description: Стоимость блюда
           example: 500
         weight:
@@ -413,11 +413,11 @@ components:
           description: Название блюда
           example: "Пицца Четыре сыра"
         price:
-          type: integer
+          type: string
           description: Стоимость блюда
           example: 500
         count:
-          type: integer
+          type: string
           description: Количество продукта
           example: 3
 
@@ -433,8 +433,11 @@ components:
     OrderCreateRequest:
       allOf:
         - $ref: '#/components/schemas/IRequest'
-        - $ref: '#/components/schemas/GoodsRequestDebug'
-        - $ref: '#/components/schemas/OrderGoodsObject'
+        - $ref: '#/components/schemas/OrderRequestDebug'
+        - type: object
+          properties:
+            order:
+               $ref: '#/components/schemas/OrderGoodsObject'
 
     OrderIdObject:
       allOf:
@@ -446,7 +449,7 @@ components:
     OrderReadRequest:
       allOf:
         - $ref: '#/components/schemas/IRequest'
-        - $ref: '#/components/schemas/GoodsRequestDebug'
+        - $ref: '#/components/schemas/OrderRequestDebug'
         - type: object
           properties:
             order:
@@ -473,7 +476,7 @@ components:
     OrderUpdateRequest:
       allOf:
         - $ref: '#/components/schemas/IRequest'
-        - $ref: '#/components/schemas/GoodsRequestDebug'
+        - $ref: '#/components/schemas/OrderRequestDebug'
         - type: object
           properties:
             order:
@@ -482,7 +485,7 @@ components:
     OrderDeleteRequest:
       allOf:
         - $ref: '#/components/schemas/IRequest'
-        - $ref: '#/components/schemas/GoodsRequestDebug'
+        - $ref: '#/components/schemas/OrderRequestDebug'
         - type: object
           properties:
             order:
@@ -501,14 +504,13 @@ components:
           format: date-time
           example: "2023-07-20T16:30:00Z"
         buyerId:
-          type: integer
-          format: int64
-          example: 3214
+          type: string
+          example: "3214"
 
     OrderSearchRequest:
       allOf:
         - $ref: '#/components/schemas/IRequest'
-        - $ref: '#/components/schemas/GoodsRequestDebug'
+        - $ref: '#/components/schemas/OrderRequestDebug'
         - type: object
           properties:
             goodsFilter:
@@ -552,7 +554,7 @@ components:
               format: date-time
               example: "2023-07-20T16:30:00Z"
             totalPrice:
-              type: integer
+              type: string
               format: int64
               example: 10000
             buyerId:
@@ -632,7 +634,7 @@ components:
         - $ref: '#/components/schemas/OrderResponseMulti'
 
     #/components/schemas/ STUBS ======================
-    GoodsRequestDebugMode:
+    RequestDebugMode:
       type: string
       enum:
         - prod
@@ -645,13 +647,27 @@ components:
         debug:
           $ref: '#/components/schemas/GoodsDebug'
 
+    OrderRequestDebug:
+      type: object
+      properties:
+        debug:
+          $ref: '#/components/schemas/OrderDebug'
+
     GoodsDebug:
       type: object
       properties:
         mode:
-          $ref: '#/components/schemas/GoodsRequestDebugMode'
+          $ref: '#/components/schemas/RequestDebugMode'
         stub:
           $ref: '#/components/schemas/GoodsRequestDebugStubs'
+
+    OrderDebug:
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/RequestDebugMode'
+        stub:
+          $ref: '#/components/schemas/OrderRequestDebugStubs'
 
     GoodsRequestDebugStubs:
       type: string

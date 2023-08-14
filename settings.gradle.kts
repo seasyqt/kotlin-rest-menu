@@ -1,10 +1,10 @@
 rootProject.name = "quickMenu"
 
 include("m1-l1-helloworld")
-include("menu")
 include("menu-api-v1-jackson")
 include("menu-api-v2-kmp")
 include("menu-common")
+include("menu-mappers-v1")
 
 pluginManagement {
     val kotlinVersion: String by settings

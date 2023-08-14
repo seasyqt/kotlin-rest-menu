@@ -11,7 +11,7 @@ import ru.otuskotlin.learning.utils.NONE
 data class GoodsContext(
     var command: GoodsCommand = GoodsCommand.NONE,
     var state: State = State.NONE,
-    var error: MutableList<CommonError> = mutableListOf(),
+    var errors: MutableList<CommonError> = mutableListOf(),
 
     var debugMode: DebugMode = DebugMode.PROD,
     var stub: GoodsStub = GoodsStub.NONE,

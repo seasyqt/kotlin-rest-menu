@@ -5,5 +5,6 @@ enum class GoodsCommand {
     CREATE,
     READ,
     UPDATE,
-    DELETE
+    DELETE,
+    SEARCH
 }

@@ -11,7 +11,7 @@ import ru.otuskotlin.learning.utils.NONE
 data class OrderContext(
     var command: OrderCommand = OrderCommand.NONE,
     var state: State = State.NONE,
-    var error: MutableList<CommonError> = mutableListOf(),
+    var errors: MutableList<CommonError> = mutableListOf(),
 
     var debugMode: DebugMode = DebugMode.PROD,
     var stub: OrderStub = OrderStub.NONE,

@@ -5,5 +5,6 @@ enum class OrderCommand {
     CREATE,
     READ,
     UPDATE,
-    DELETE
+    DELETE,
+    SEARCH
 }
