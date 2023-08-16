@@ -28,7 +28,7 @@
       3. Price (Int)
       4. Count (Int)</br>
    ...
-3. CreatedDate (TIMESTAMP)
+3. CreatedDate (Datetime)
 4. TotalPrice (Int)
 5. BuyerId (Int)
 
