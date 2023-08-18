@@ -1,14 +1,15 @@
 import org.junit.Test
-import ru.otuskotlin.learning.GoodsContext
 import ru.otuskotlin.learning.api.v1.models.*
-import ru.otuskotlin.learning.models.CommonError
-import ru.otuskotlin.learning.models.DebugMode
-import ru.otuskotlin.learning.models.RequestId
-import ru.otuskotlin.learning.models.State
-import ru.otuskotlin.learning.models.goods.Goods
-import ru.otuskotlin.learning.models.goods.GoodsCommand
-import ru.otuskotlin.learning.models.goods.GoodsType
-import ru.otuskotlin.learning.stubs.GoodsStub
+import models.CommonError
+import models.DebugMode
+import models.RequestId
+import models.State
+import models.goods.Goods
+import models.goods.GoodsCommand
+import models.goods.GoodsType
+import ru.otuskotlin.learning.menu.common.*
+import ru.otuskotlin.learning.menu.mappers.*
+import stubs.GoodsStub
 import java.math.BigInteger
 import kotlin.test.assertEquals
 

@@ -18,7 +18,7 @@ class GoodsRequestSerializationTest {
         assertContains(json, Regex("\"stub\":\\s*\"success\""))
         assertContains(json, Regex("\"name\":\\s*\"Пицца четыре сыр\""))
         assertContains(json, Regex("\"type\":\\s*\"pizza\""))
-        assertContains(json, Regex("\"price\":\\s*100"))
+        assertContains(json, Regex("\"price\":\\s*\"100\""))
         assertContains(json, Regex("\"weight\":\\s*\"100 гр\""))
     }
 
@@ -40,7 +40,7 @@ class GoodsRequestSerializationTest {
           "goods": {
             "name": "Пицца четыре сыр",
             "type": "pizza",
-            "price": 400,
+            "price": "400",
             "weight": "100 гр"
           }
         }

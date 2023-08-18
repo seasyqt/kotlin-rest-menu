@@ -11,7 +11,7 @@ class ResponseSerializationTest {
         goods = GoodsResponseObjectDto(
             name = "Goodsname",
             type = GoodsTypeDto.PIZZA,
-            price = 100,
+            price = "100",
             weight = "100 гр",
         )
     )
@@ -24,7 +24,7 @@ class ResponseSerializationTest {
         assertContains(jsonResponse, Regex("\"responseType\":\\s*\"goodsCreate\""))
         assertContains(jsonResponse, Regex("\"name\":\\s*\"Goodsname\""))
         assertContains(jsonResponse, Regex("\"type\":\\s*\"pizza\""))
-        assertContains(jsonResponse, Regex("\"price\":\\s*100"))
+        assertContains(jsonResponse, Regex("\"price\":\\s*\"100\""))
         assertContains(jsonResponse, Regex("\"weight\":\\s*\"100 гр\""))
     }
 

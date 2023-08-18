@@ -1,12 +1,13 @@
+package ru.otuskotlin.learning.menu.mappers
+
 import exceptions.UnknownGoodsCommand
-import ru.otuskotlin.learning.GoodsContext
 import ru.otuskotlin.learning.api.v1.models.*
-import ru.otuskotlin.learning.models.CommonError
-import ru.otuskotlin.learning.models.State
-import ru.otuskotlin.learning.models.goods.Goods
-import ru.otuskotlin.learning.models.goods.GoodsCommand
-import ru.otuskotlin.learning.models.goods.GoodsId
-import ru.otuskotlin.learning.models.goods.GoodsType
+import models.CommonError
+import models.State
+import models.goods.Goods
+import models.goods.GoodsCommand
+import models.goods.GoodsType
+import ru.otuskotlin.learning.menu.common.GoodsContext
 
 fun GoodsContext.toTransport(): IResponseDto = when (val cmd = command) {
     GoodsCommand.CREATE -> toTransportCreate()
@@ -58,7 +59,7 @@ fun MutableList<Goods>.toTransportError(): List<GoodsResponseObjectDto>? = this
     .takeIf { it.isNotEmpty() }
 
 private fun Goods.toTransportError(): GoodsResponseObjectDto = GoodsResponseObjectDto(
-    id = id.takeIf { it != GoodsId.NONE }?.asString(),
+    id = id.takeIf { it != models.goods.GoodsId.NONE }?.asString(),
     name = name.takeIf { it.isNotBlank() },
     type = type.toTransportError(),
     price = price.toString(),

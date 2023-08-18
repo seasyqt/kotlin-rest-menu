@@ -1,16 +1,17 @@
 import kotlinx.datetime.Instant
 import org.junit.Test
-import ru.otuskotlin.learning.OrderContext
 import ru.otuskotlin.learning.api.v1.models.*
-import ru.otuskotlin.learning.models.CommonError
-import ru.otuskotlin.learning.models.DebugMode
-import ru.otuskotlin.learning.models.RequestId
-import ru.otuskotlin.learning.models.State
-import ru.otuskotlin.learning.models.order.BuyerId
-import ru.otuskotlin.learning.models.order.GoodsOrder
-import ru.otuskotlin.learning.models.order.Order
-import ru.otuskotlin.learning.models.order.OrderCommand
-import ru.otuskotlin.learning.stubs.OrderStub
+import models.CommonError
+import models.DebugMode
+import models.RequestId
+import models.State
+import models.order.BuyerId
+import models.order.GoodsOrder
+import models.order.Order
+import models.order.OrderCommand
+import ru.otuskotlin.learning.menu.common.*
+import ru.otuskotlin.learning.menu.mappers.*
+import stubs.OrderStub
 import java.math.BigInteger
 import kotlin.test.assertEquals
 
