@@ -7,13 +7,13 @@ class TestUtils {
             requestId = "123",
             requestType = "goodsCreate",
             debug = GoodsDebugDto(
-                mode = GoodsRequestDebugModeDto.STUB,
+                mode = RequestDebugModeDto.STUB,
                 stub = GoodsRequestDebugStubsDto.SUCCESS
             ),
             goods = GoodsCreateObjectDto(
                 name = "Пицца четыре сыр",
                 type = GoodsTypeDto.PIZZA,
-                price = 100,
+                price = "100",
                 weight = "100 гр",
             )
         )
@@ -22,25 +22,25 @@ class TestUtils {
             requestType = "goodsRead",
             requestId = "12313",
             debug = GoodsDebugDto(
-                mode = GoodsRequestDebugModeDto.STUB,
+                mode = RequestDebugModeDto.STUB,
                 stub = GoodsRequestDebugStubsDto.SUCCESS
             ),
-            id = 123123
+            id = "123123"
         )
 
         val goodsUpdateRequest: IRequestDto = GoodsUpdateRequestDto(
             requestType = "goodsUpdate",
             requestId = "313",
             debug = GoodsDebugDto(
-                mode = GoodsRequestDebugModeDto.STUB,
+                mode = RequestDebugModeDto.STUB,
                 stub = GoodsRequestDebugStubsDto.SUCCESS
             ),
             goods = GoodsUpdateObjectDto(
-                id = 123123,
+                id = "123123",
                 name = "Пицца Мясная ",
                 type = GoodsTypeDto.PIZZA,
                 weight = "400 гр",
-                price = 1000
+                price = "1000"
             )
         )
 
@@ -48,10 +48,10 @@ class TestUtils {
             requestType = "goodsDelete",
             requestId = "5312523",
             debug = GoodsDebugDto(
-                mode = GoodsRequestDebugModeDto.STUB,
+                mode = RequestDebugModeDto.STUB,
                 stub = GoodsRequestDebugStubsDto.SUCCESS
             ),
-            id = 123123
+            id = "123123"
         )
 
         val goodsCreateResponse = GoodsCreateResponseDto(
@@ -60,7 +60,7 @@ class TestUtils {
             goods = GoodsResponseObjectDto(
                 name = "Goodsname",
                 type = GoodsTypeDto.PIZZA,
-                price = 100,
+                price = "100",
                 weight = "100 гр",
             )
         )

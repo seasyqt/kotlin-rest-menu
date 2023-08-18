@@ -1,13 +1,15 @@
+package ru.otuskotlin.learning.menu.mappers
+
 import exceptions.UnknownRequestClass
 import kotlinx.datetime.Instant
-import ru.otuskotlin.learning.OrderContext
 import ru.otuskotlin.learning.api.v1.models.*
-import ru.otuskotlin.learning.models.DebugMode
-import ru.otuskotlin.learning.models.RequestId
-import ru.otuskotlin.learning.models.goods.GoodsId
-import ru.otuskotlin.learning.models.goods.GoodsType
-import ru.otuskotlin.learning.models.order.*
-import ru.otuskotlin.learning.stubs.OrderStub
+import models.DebugMode
+import models.RequestId
+import models.goods.GoodsId
+import models.goods.GoodsType
+import models.order.*
+import ru.otuskotlin.learning.menu.common.OrderContext
+import stubs.OrderStub
 import java.math.BigInteger
 
 fun OrderContext.fromTransport(request: IRequestDto) = when (request) {

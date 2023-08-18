@@ -9,13 +9,13 @@ class RequestSerializationTest {
         requestId = "123",
         requestType = "goodsCreate",
         debug = GoodsDebugDto(
-            mode = GoodsRequestDebugModeDto.STUB,
+            mode = RequestDebugModeDto.STUB,
             stub = GoodsRequestDebugStubsDto.BAD_ID
         ),
         goods = GoodsCreateObjectDto(
             name = "Goodsname",
             type = GoodsTypeDto.PIZZA,
-            price = 100,
+            price = "100",
             weight = "100 гр",
         )
     )
@@ -30,7 +30,7 @@ class RequestSerializationTest {
         assertContains(json, Regex("\"stub\":\\s*\"badId\""))
         assertContains(json, Regex("\"name\":\\s*\"Goodsname\""))
         assertContains(json, Regex("\"type\":\\s*\"pizza\""))
-        assertContains(json, Regex("\"price\":\\s*100"))
+        assertContains(json, Regex("\"price\":\\s*\"100\""))
         assertContains(json, Regex("\"weight\":\\s*\"100 гр\""))
     }
 

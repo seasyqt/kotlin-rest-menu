@@ -1,12 +1,14 @@
+package ru.otuskotlin.learning.menu.mappers
+
 import exceptions.UnknownOrderCommand
 import kotlinx.datetime.Instant
-import ru.otuskotlin.learning.OrderContext
 import ru.otuskotlin.learning.api.v1.models.*
-import ru.otuskotlin.learning.models.CommonError
-import ru.otuskotlin.learning.models.State
-import ru.otuskotlin.learning.models.goods.GoodsId
-import ru.otuskotlin.learning.models.order.*
-import ru.otuskotlin.learning.utils.NONE
+import models.CommonError
+import models.State
+import models.goods.GoodsId
+import models.order.*
+import ru.otuskotlin.learning.menu.common.OrderContext
+import utils.NONE
 import java.math.BigInteger
 
 fun OrderContext.toTransport(): IResponseDto = when (val cmd = command) {

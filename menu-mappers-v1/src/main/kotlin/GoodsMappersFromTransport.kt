@@ -1,10 +1,12 @@
+package ru.otuskotlin.learning.menu.mappers
+
 import exceptions.UnknownRequestClass
-import ru.otuskotlin.learning.GoodsContext
 import ru.otuskotlin.learning.api.v1.models.*
-import ru.otuskotlin.learning.models.DebugMode
-import ru.otuskotlin.learning.models.RequestId
-import ru.otuskotlin.learning.models.goods.*
-import ru.otuskotlin.learning.stubs.GoodsStub
+import models.DebugMode
+import models.RequestId
+import models.goods.*
+import ru.otuskotlin.learning.menu.common.GoodsContext
+import stubs.GoodsStub
 import java.math.BigInteger
 
 fun GoodsContext.fromTransport(request: IRequestDto) = when (request) {
