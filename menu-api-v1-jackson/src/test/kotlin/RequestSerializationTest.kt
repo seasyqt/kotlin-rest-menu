@@ -1,4 +1,5 @@
 import org.junit.Test
+import ru.otuskotlin.learning.api.v1.*
 import ru.otuskotlin.learning.api.v1.models.*
 import kotlin.test.assertContains
 import kotlin.test.assertEquals

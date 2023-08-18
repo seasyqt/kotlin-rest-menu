@@ -8,6 +8,7 @@ include("menu-mappers-v1")
 include("menu-app-spring")
 include("menu-biz")
 include("menu-stubs")
+include("menu-app-kafka")
 
 pluginManagement {
     val kotlinVersion: String by settings
@@ -15,10 +16,13 @@ pluginManagement {
     val springframeworkBootVersion: String by settings
     val springDependencyManagementVersion: String by settings
     val pluginSpringVersion: String by settings
+    val bmuschkoVersion: String by settings
 
     plugins {
         kotlin("jvm") version kotlinVersion apply false
         kotlin("plugin.serialization") version kotlinVersion apply false
+
+        id("com.bmuschko.docker-java-application") version bmuschkoVersion apply false
 
         id("org.springframework.boot") version springframeworkBootVersion apply false
         id("org.openapi.generator") version openapiVersion apply false
