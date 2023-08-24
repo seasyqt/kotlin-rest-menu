@@ -19,6 +19,7 @@ kotlin {
 
                 implementation(project(":menu-common"))
                 implementation(project(":menu-stubs"))
+                implementation(project(":menu-lib-cor"))
             }
         }
         @Suppress("UNUSED_VARIABLE")
