@@ -1,4 +1,4 @@
-package ru.otus.otuskotlin.marketplace.biz.stub
+package ru.otuskotlin.learning.menu.biz.stub
 
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest

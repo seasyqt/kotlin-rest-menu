@@ -1,31 +1,29 @@
 package ru.otuskotlin.learning.menu.springapp.api.controller
 
-import com.fasterxml.jackson.databind.ObjectMapper
-import org.junit.jupiter.api.Assertions.*
+import com.ninjasquad.springmockk.MockkBean
+import io.mockk.*
+import io.mockk.coVerify
+import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
-import org.springframework.boot.test.mock.mockito.MockBean
+import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest
 import org.springframework.http.MediaType
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
-import org.springframework.test.web.servlet.MockMvc
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
+import org.springframework.test.web.reactive.server.WebTestClient
+import org.springframework.web.reactive.function.BodyInserters
 import ru.otuskotlin.learning.api.v1.models.*
+import ru.otuskotlin.learning.menu.biz.GoodsProcessor
 import ru.otuskotlin.learning.menu.common.GoodsContext
 import ru.otuskotlin.learning.menu.mappers.*
-import ru.otuskotlin.learning.menu.springapp.service.GoodsBlockingProcessor
+import ru.otuskotlin.learning.menu.springapp.config.CorConfig
 
-@WebMvcTest(GoodsController::class)
-class GoodsControllerTest {
-
-    @Autowired
-    private lateinit var mvc: MockMvc
+@WebFluxTest(GoodsController::class, CorConfig::class)
+internal class GoodsControllerTest {
 
     @Autowired
-    private lateinit var mapper: ObjectMapper
+    private lateinit var webClient: WebTestClient
 
-    @MockBean
-    private lateinit var processor: GoodsBlockingProcessor
+    @MockkBean(relaxUnitFun = true)
+    private lateinit var processor: GoodsProcessor
 
 
     @Test
@@ -64,21 +62,28 @@ class GoodsControllerTest {
     )
 
 
-    private fun <Req : Any, Res : Any> testStubGoods(
+    private inline fun <reified Req : Any, reified Res : IResponseDto> testStubGoods(
         url: String,
         requestObj: Req,
         responseObj: Res,
     ) {
-        val request = mapper.writeValueAsString(requestObj)
-        val response = mapper.writeValueAsString(responseObj)
 
-        mvc.perform(
-            post(url)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(request)
-        )
-            .andExpect(status().isOk)
-            .andExpect(content().json(response))
+        coEvery { processor.process<Res>(any(), any(), any()) } returns responseObj
+
+
+        webClient
+            .post()
+            .uri(url)
+            .contentType(MediaType.APPLICATION_JSON)
+            .body(BodyInserters.fromValue(requestObj))
+            .exchange()
+            .expectStatus().isOk
+            .expectBody(Res::class.java)
+            .value {
+                println("RESPONSE: $it")
+                Assertions.assertThat(it).isEqualTo(responseObj)
+            }
+        coVerify { processor.process<Res>(any(), any(), any()) }
     }
 
 }
