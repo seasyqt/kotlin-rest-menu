@@ -1,3 +1,5 @@
+package ru.otuskotlin.learning.stub
+
 import kotlinx.datetime.Instant
 import models.goods.GoodsId
 import models.order.BuyerId

@@ -25,6 +25,12 @@ data class GoodsContext(
     var goodsRequest: Goods = Goods(),
     var goodsFilterRequest: GoodsFilter = GoodsFilter(),
 
+    var goodsValidating: Goods = Goods(),
+    var goodsFilterValidating: GoodsFilter = GoodsFilter(),
+
+    var goodsValidated: Goods = Goods(),
+    var goodsFilterValidated: GoodsFilter = GoodsFilter(),
+
     var goodsResponse: Goods = Goods(),
     var goodsListResponse: MutableList<Goods> = mutableListOf()
 )

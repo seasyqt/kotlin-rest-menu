@@ -19,6 +19,7 @@ fun GoodsContext.toTransport(): IResponseDto = when (val cmd = command) {
 }
 
 fun GoodsContext.toTransportCreate() = GoodsCreateResponseDto(
+    responseType = "goodsCreate",
     requestId = this.requestId.asString().takeIf { it.isNotBlank() },
     result = (state == State.RUNNING).toResponseResult(),
     errors = errors.toTransportErrors(),
@@ -26,6 +27,7 @@ fun GoodsContext.toTransportCreate() = GoodsCreateResponseDto(
 )
 
 fun GoodsContext.toTransportRead() = GoodsReadResponseDto(
+    responseType = "goodsRead",
     requestId = this.requestId.asString().takeIf { it.isNotBlank() },
     result = (state == State.RUNNING).toResponseResult(),
     errors = errors.toTransportErrors(),
@@ -33,6 +35,7 @@ fun GoodsContext.toTransportRead() = GoodsReadResponseDto(
 )
 
 fun GoodsContext.toTransportUpdate() = GoodsUpdateResponseDto(
+    responseType = "goodsUpdate",
     requestId = this.requestId.asString().takeIf { it.isNotBlank() },
     result = (state == State.RUNNING).toResponseResult(),
     errors = errors.toTransportErrors(),
@@ -40,6 +43,7 @@ fun GoodsContext.toTransportUpdate() = GoodsUpdateResponseDto(
 )
 
 fun GoodsContext.toTransportDelete() = GoodsDeleteResponseDto(
+    responseType = "goodsDelete",
     requestId = this.requestId.asString().takeIf { it.isNotBlank() },
     result = (state == State.RUNNING).toResponseResult(),
     errors = errors.toTransportErrors(),
@@ -47,6 +51,7 @@ fun GoodsContext.toTransportDelete() = GoodsDeleteResponseDto(
 )
 
 fun GoodsContext.toTransportSearch() = GoodsSearchResponseDto(
+    responseType = "goodsSearch",
     requestId = this.requestId.asString().takeIf { it.isNotBlank() },
     result = (state == State.RUNNING).toResponseResult(),
     errors = this.errors.toTransportErrors(),

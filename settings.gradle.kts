@@ -9,6 +9,7 @@ include("menu-app-spring")
 include("menu-biz")
 include("menu-stubs")
 include("menu-app-kafka")
+include("menu-lib-cor")
 
 pluginManagement {
     val kotlinVersion: String by settings

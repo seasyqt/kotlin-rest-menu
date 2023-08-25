@@ -59,7 +59,7 @@ class KafkaControllerTest {
         val result = apiJacksonResponseDeserialize<GoodsCreateResponseDto>(message.value())
         assertEquals(outputTopic, message.topic())
         assertEquals("11111111-1111-1111-1111-111111111111", result.requestId)
-        assertEquals("Пицца Пеперони", result.goods?.name)
+        assertEquals("Pizza", result.goods?.name)
     }
 
     companion object {
