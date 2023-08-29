@@ -3,7 +3,6 @@ package ru.otuskotlin.learning.stub
 import models.goods.Goods
 import models.goods.GoodsId
 import models.goods.GoodsType
-import java.math.BigInteger
 
 object GoodsStubPizza {
 
@@ -12,8 +11,8 @@ object GoodsStubPizza {
             id = GoodsId("123"),
             name = "Пицца Пеперони",
             type = GoodsType.PIZZA,
-            price = BigInteger.valueOf(100),
-            weight = "100 гр"
+            price = 100,
+            weight = "100"
         )
 
     val GOODS_SNACK = GOODS_PIZZA.copy(type = GoodsType.SNACK)

@@ -7,8 +7,8 @@ import models.State
 import models.goods.*
 import ru.otuskotlin.learning.menu.biz.*
 import ru.otuskotlin.learning.menu.common.GoodsContext
+import ru.otuskotlin.learning.menu.common.GoodsCorSettings
 import stubs.GoodsStub
-import java.math.BigInteger
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -16,11 +16,11 @@ import kotlin.test.assertEquals
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class GoodsUpdateStubTest {
-    private val processor = GoodsProcessor()
+    private val processor = GoodsProcessor(GoodsCorSettings())
     val id = GoodsId("777")
     val name = "Пицца Пеперони"
     val type = GoodsType.PIZZA
-    val price = BigInteger.valueOf(100)
+    val price = 100L
     val weight = "100 гр"
 
     @Test

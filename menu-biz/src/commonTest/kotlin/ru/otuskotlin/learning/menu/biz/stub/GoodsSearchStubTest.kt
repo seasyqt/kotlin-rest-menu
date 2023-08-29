@@ -18,7 +18,7 @@ import kotlin.test.fail
 @OptIn(ExperimentalCoroutinesApi::class)
 class GoodsSearchStubTest {
 
-    private val processor = GoodsProcessor()
+    private val processor = GoodsProcessor(GoodsCorSettings())
     val filter = GoodsFilter(nameSearch = "bolt")
 
     @Test

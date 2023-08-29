@@ -9,13 +9,14 @@ import models.goods.GoodsCommand
 import models.goods.GoodsId
 import ru.otuskotlin.learning.menu.biz.GoodsProcessor
 import ru.otuskotlin.learning.menu.common.GoodsContext
+import ru.otuskotlin.learning.menu.common.GoodsCorSettings
 import ru.otuskotlin.learning.stub.GoodsStubObject
 import stubs.GoodsStub
 import kotlin.test.Test
 import kotlin.test.assertEquals
 @OptIn(ExperimentalCoroutinesApi::class)
 class GoodsDeleteStubTest {
-    private val processor = GoodsProcessor()
+    private val processor = GoodsProcessor(GoodsCorSettings())
     val id = GoodsId("666")
 
     @Test

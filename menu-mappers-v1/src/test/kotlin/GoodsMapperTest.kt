@@ -10,7 +10,6 @@ import models.goods.GoodsType
 import ru.otuskotlin.learning.menu.common.*
 import ru.otuskotlin.learning.menu.mappers.*
 import stubs.GoodsStub
-import java.math.BigInteger
 import kotlin.test.assertEquals
 
 class GoodsMapperTest {
@@ -26,7 +25,7 @@ class GoodsMapperTest {
                 name = "Салат",
                 type = GoodsTypeDto.SALAD,
                 price = "500",
-                weight = "600гр",
+                weight = "600",
             ),
         )
 
@@ -37,8 +36,8 @@ class GoodsMapperTest {
         assertEquals(DebugMode.STUB, context.debugMode)
         assertEquals("Салат", context.goodsRequest.name)
         assertEquals(GoodsType.SALAD, context.goodsRequest.type)
-        assertEquals("600гр", context.goodsRequest.weight)
-        assertEquals(BigInteger.valueOf(500), context.goodsRequest.price)
+        assertEquals("600", context.goodsRequest.weight)
+        assertEquals(500, context.goodsRequest.price)
     }
 
     @Test
@@ -49,7 +48,7 @@ class GoodsMapperTest {
             goodsResponse = Goods(
                 name = "Батончик",
                 type = GoodsType.SNACK,
-                price = BigInteger.valueOf(300),
+                price = 300,
                 weight = "888",
             ),
             errors = mutableListOf(

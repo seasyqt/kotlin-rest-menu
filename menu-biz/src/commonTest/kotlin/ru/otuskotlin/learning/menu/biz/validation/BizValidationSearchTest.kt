@@ -1,5 +1,6 @@
 package ru.otus.otuskotlin.marketplace.biz.validation
 
+import GoodsRepoStub
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import models.DebugMode
@@ -8,6 +9,7 @@ import models.goods.GoodsCommand
 import models.goods.GoodsFilter
 import ru.otuskotlin.learning.menu.biz.GoodsProcessor
 import ru.otuskotlin.learning.menu.common.GoodsContext
+import ru.otuskotlin.learning.menu.common.GoodsCorSettings
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotEquals
@@ -16,7 +18,7 @@ import kotlin.test.assertNotEquals
 class BizValidationSearchTest {
 
     private val command = GoodsCommand.SEARCH
-    private val processor by lazy { GoodsProcessor() }
+    private val processor = GoodsProcessor(GoodsCorSettings(repoTest = GoodsRepoStub()))
 
     @Test
     fun correctEmpty() = runTest {
