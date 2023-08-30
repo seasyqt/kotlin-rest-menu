@@ -17,6 +17,7 @@ class RepoGoodsSQL(
     val randomUuid: () -> String = { uuid4().toString() },
 ) : IGoodsRepository {
 
+
     init {
         val driver = when {
             properties.url.startsWith("jdbc:postgresql://") -> "org.postgresql.Driver"
