@@ -9,8 +9,8 @@ import models.goods.GoodsCommand
 import models.goods.GoodsType
 import ru.otuskotlin.learning.menu.biz.GoodsProcessor
 import ru.otuskotlin.learning.menu.common.GoodsContext
+import ru.otuskotlin.learning.menu.common.models.goods.GoodsLock
 import ru.otuskotlin.learning.stub.GoodsStubObject
-import java.math.BigInteger
 import kotlin.test.assertContains
 import kotlin.test.assertEquals
 import kotlin.test.assertNotEquals
@@ -27,8 +27,9 @@ fun validationNameCorrect(command: GoodsCommand, processor: GoodsProcessor) = ru
             id = stub.id,
             name = "name",
             type = GoodsType.PIZZA,
-            price = BigInteger.TEN,
-            weight = "weight"
+            price = 10,
+            weight = "weight",
+            lock = GoodsLock("123123123")
         ),
     )
     processor.exec(ctx)
@@ -47,8 +48,9 @@ fun validationNameTrim(command: GoodsCommand, processor: GoodsProcessor) = runTe
             id = stub.id,
             name = " \n\tname \n\t",
             type = GoodsType.PIZZA,
-            price = BigInteger.TEN,
-            weight = "weight"
+            price = 10,
+            weight = "weight",
+            lock = GoodsLock("123123123")
         ),
     )
     processor.exec(ctx)
@@ -67,8 +69,9 @@ fun validationNameEmpty(command: GoodsCommand, processor: GoodsProcessor) = runT
             id = stub.id,
             name = "",
             type = GoodsType.PIZZA,
-            price = BigInteger.TEN,
-            weight = "weight"
+            price = 10,
+            weight = "weight",
+            lock = GoodsLock("123123123")
         ),
     )
     processor.exec(ctx)
@@ -89,8 +92,9 @@ fun validationNameSymbols(command: GoodsCommand, processor: GoodsProcessor) = ru
             id = stub.id,
             name = "!@#\$%^&*(),.{}",
             type = GoodsType.PIZZA,
-            price = BigInteger.TEN,
+            price = 10,
             weight = "weight",
+            lock = GoodsLock("123123123")
         ),
     )
     processor.exec(ctx)

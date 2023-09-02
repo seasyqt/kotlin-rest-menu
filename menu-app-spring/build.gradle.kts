@@ -4,6 +4,7 @@ plugins {
     kotlin("jvm")
     kotlin("plugin.spring")
     kotlin("plugin.serialization")
+    id("com.bmuschko.docker-spring-boot-application")
 }
 
 
@@ -26,6 +27,11 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion")
 
+    // Repo
+    implementation(project(":menu-repo-stubs"))
+    implementation(project(":menu-repo-in-memory"))
+    implementation(project(":menu-repo-postgresql"))
+
     // transport models
     implementation(project(":menu-common"))
 
@@ -42,7 +48,6 @@ dependencies {
     testImplementation("io.kotest:kotest-runner-junit5:$kotestVersion")
     testImplementation("org.springframework.boot:spring-boot-starter-webflux") // Controller, Service, etc..
     testImplementation("com.ninja-squad:springmockk:3.0.1")
-    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1") // mockking beans
 }
 
 tasks {
@@ -55,4 +60,13 @@ tasks {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+docker {
+    springBootApplication {
+        baseImage.set("openjdk:17")
+        ports.set(listOf(8080))
+        images.set(setOf("${project.name}:latest"))
+        jvmArgs.set(listOf("-XX:+UseContainerSupport"))
+    }
 }

@@ -4,7 +4,6 @@ import models.goods.Goods
 import models.goods.GoodsId
 import models.goods.GoodsType
 import ru.otuskotlin.learning.stub.GoodsStubPizza.GOODS_PIZZA
-import java.math.BigInteger
 
 object GoodsStubObject {
     fun get(): Goods = GOODS_PIZZA.copy()
@@ -28,7 +27,7 @@ object GoodsStubObject {
             id = GoodsId(id),
             name = name,
             type = type,
-            price = BigInteger.valueOf(price),
+            price = price,
             weight = weight
         )
 }

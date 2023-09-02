@@ -18,3 +18,13 @@ springdoc:
     urls:
       - name: v1
         url: specs-menu-v1.yaml
+
+prod-repository: ${PROD_REPOSITORY:prod}
+
+sql:
+  url: ${SQL_URL:jdbc:postgresql://localhost:5432/menu}
+  user: ${SQL_USER:postgres}
+  password: ${SQL_PASSWORD:menu-pass}
+  schema: ${SQL_SCHEMA:menu}
+  drop-database: ${SQL_DROP_DATABASE:true}
+  fast-migration: ${SQL_FAST_MIGRATION:true}

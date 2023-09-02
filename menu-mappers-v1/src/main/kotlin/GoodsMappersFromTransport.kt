@@ -7,7 +7,6 @@ import models.RequestId
 import models.goods.*
 import ru.otuskotlin.learning.menu.common.GoodsContext
 import stubs.GoodsStub
-import java.math.BigInteger
 
 fun GoodsContext.fromTransport(request: IRequestDto) = when (request) {
     is GoodsCreateRequestDto -> fromTransport(request)
@@ -88,7 +87,7 @@ private fun GoodsSearchFilterDto?.toInternal(): GoodsFilter = GoodsFilter(
 private fun GoodsCreateObjectDto.toInternal(): Goods = Goods(
     name = this.name ?: "",
     type = this.type.fromTransport(),
-    price = this.price?.toBigInteger() ?: BigInteger.ZERO,
+    price = this.price?.toLong() ?: 0,
     weight = this.weight ?: "",
 )
 
@@ -96,7 +95,7 @@ private fun GoodsUpdateObjectDto.toInternal(): Goods = Goods(
     id = this.id.toGoodsId(),
     name = this.name ?: "",
     type = this.type.fromTransport(),
-    price = this.price?.toBigInteger() ?: BigInteger.ZERO,
+    price = this.price?.toLong() ?: 0,
     weight = this.weight ?: "",
 )
 

@@ -12,8 +12,11 @@ import org.springframework.test.web.reactive.server.WebTestClient
 import org.springframework.web.reactive.function.BodyInserters
 import ru.otuskotlin.learning.api.v1.models.*
 import ru.otuskotlin.learning.menu.biz.GoodsProcessor
-import ru.otuskotlin.learning.menu.common.GoodsContext
-import ru.otuskotlin.learning.menu.mappers.*
+import ru.otuskotlin.learning.menu.springapp.DataUtils.Companion.goodsCreateResponse
+import ru.otuskotlin.learning.menu.springapp.DataUtils.Companion.goodsDeleteResponse
+import ru.otuskotlin.learning.menu.springapp.DataUtils.Companion.goodsReadResponse
+import ru.otuskotlin.learning.menu.springapp.DataUtils.Companion.goodsSearchResponse
+import ru.otuskotlin.learning.menu.springapp.DataUtils.Companion.goodsUpdateResponse
 import ru.otuskotlin.learning.menu.springapp.config.CorConfig
 
 @WebFluxTest(GoodsController::class, CorConfig::class)
@@ -30,35 +33,35 @@ internal class GoodsControllerTest {
     fun createGoods() = testStubGoods(
         "/v1/goods/create",
         GoodsCreateRequestDto(),
-        GoodsContext().toTransportCreate()
+        goodsCreateResponse()
     )
 
     @Test
     fun readGoods() = testStubGoods(
         "/v1/goods/read",
         GoodsReadRequestDto(),
-        GoodsContext().toTransportRead()
+        goodsReadResponse()
     )
 
     @Test
     fun updateGoods() = testStubGoods(
         "/v1/goods/update",
         GoodsUpdateRequestDto(),
-        GoodsContext().toTransportUpdate()
+        goodsUpdateResponse()
     )
 
     @Test
     fun deleteGoods() = testStubGoods(
         "/v1/goods/delete",
         GoodsDeleteRequestDto(),
-        GoodsContext().toTransportDelete()
+        goodsDeleteResponse()
     )
 
     @Test
     fun searchGoods() = testStubGoods(
         "/v1/goods/search",
         GoodsSearchRequestDto(),
-        GoodsContext().toTransportSearch()
+        goodsSearchResponse()
     )
 
 

@@ -304,6 +304,9 @@ components:
       type: string
       description: Идентификатор покупателя
       example: 100
+    GoodsLock:
+      type: string
+      description: Версия оптимистичной блокировки
 
 
     BaseGoods:
@@ -532,6 +535,8 @@ components:
           properties:
             goods:
               $ref: '#/components/schemas/GoodsResponseObject'
+            lock:
+              $ref: '#/components/schemas/GoodsLock'
 
     GoodsResponseMulti:
       allOf:

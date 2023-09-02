@@ -8,19 +8,18 @@ import ru.otuskotlin.learning.menu.biz.GoodsProcessor
 import ru.otuskotlin.learning.menu.common.*
 import ru.otuskotlin.learning.stub.GoodsStubObject
 import stubs.GoodsStub
-import java.math.BigInteger
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class GoodsCreateStubTest {
 
-    private val processor = GoodsProcessor()
+    private val processor = GoodsProcessor(GoodsCorSettings())
     val id = GoodsId("123")
     val name = "Пицца Пеперони"
     val type = GoodsType.PIZZA
-    val price = BigInteger.valueOf(100)
-    val weight = "100 гр"
+    val price = 100L
+    val weight = "100"
 
     @Test
     fun create() = runTest {

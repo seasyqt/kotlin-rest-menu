@@ -9,6 +9,7 @@ import org.apache.kafka.clients.producer.*
 import org.apache.kafka.common.errors.WakeupException
 import ru.otuskotlin.learning.menu.biz.GoodsProcessor
 import ru.otuskotlin.learning.menu.common.GoodsContext
+import ru.otuskotlin.learning.menu.common.GoodsCorSettings
 import java.time.Duration
 import java.util.*
 
@@ -20,7 +21,7 @@ data class InputOutputTopics(val input: String, val output: String)
 class AppKafkaConsumer(
     private val config: AppKafkaConfig,
     consumerStrategies: List<ConsumerStrategy>,
-    private val processor: GoodsProcessor = GoodsProcessor(),
+    private val processor: GoodsProcessor = GoodsProcessor(GoodsCorSettings()),
     private val consumer: Consumer<String, String> = config.createKafkaConsumer(),
     private val producer: Producer<String, String> = config.createKafkaProducer()
 ) {

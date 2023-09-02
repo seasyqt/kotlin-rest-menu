@@ -6,7 +6,6 @@ import models.*
 import models.goods.*
 import ru.otuskotlin.learning.menu.biz.GoodsProcessor
 import ru.otuskotlin.learning.menu.common.GoodsContext
-import java.math.BigInteger
 import kotlin.test.assertContains
 import kotlin.test.assertEquals
 import kotlin.test.assertNotEquals
@@ -21,7 +20,7 @@ fun validationIdCorrect(command: GoodsCommand, processor: GoodsProcessor) = runT
             id = GoodsId("123-234-abc-ABC"),
             name = "abc",
             type = GoodsType.PIZZA,
-            price = BigInteger.TEN,
+            price = 10,
             weight = ""
         ),
     )
@@ -40,7 +39,7 @@ fun validationIdTrim(command: GoodsCommand, processor: GoodsProcessor) = runTest
             id = GoodsId(" \n\t 123-234-abc-ABC \n\t "),
             name = "abc",
             type = GoodsType.PIZZA,
-            price = BigInteger.TEN,
+            price = 10,
             weight = ""
         ),
     )
@@ -59,7 +58,7 @@ fun validationIdEmpty(command: GoodsCommand, processor: GoodsProcessor) = runTes
             id = GoodsId(""),
             name = "abc",
             type = GoodsType.PIZZA,
-            price = BigInteger.TEN,
+            price = 10,
             weight = ""
         ),
     )
@@ -81,7 +80,7 @@ fun validationIdFormat(command: GoodsCommand, processor: GoodsProcessor) = runTe
             id = GoodsId("!@#\$%^&*(),.{}"),
             name = "abc",
             type = GoodsType.PIZZA,
-            price = BigInteger.TEN,
+            price = 10,
             weight = ""
         ),
     )

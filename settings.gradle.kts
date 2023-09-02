@@ -10,6 +10,10 @@ include("menu-biz")
 include("menu-stubs")
 include("menu-app-kafka")
 include("menu-lib-cor")
+include("menu-repo-in-memory")
+include("menu-repo-tests")
+include("menu-repo-stubs")
+include("menu-repo-postgresql")
 
 pluginManagement {
     val kotlinVersion: String by settings
@@ -29,6 +33,7 @@ pluginManagement {
         id("org.openapi.generator") version openapiVersion apply false
         id("io.spring.dependency-management") version springDependencyManagementVersion apply false
         kotlin("plugin.spring") version pluginSpringVersion apply false
+        id("com.bmuschko.docker-spring-boot-application") version bmuschkoVersion apply false
 
     }
 }
